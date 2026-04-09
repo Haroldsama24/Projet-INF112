@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Définition de la structure d'une cellule
+typedef struct Cellule {
+    int val;
+    struct Cellule* suiv;
+} Cellule;
+
+// Définition de la structure de la liste
+typedef struct {
+    Cellule* tete;
+} Liste;
+
+// Fonction 
+int main() {
+    Liste L;
+    L.tete = NULL; // Initialisation de la liste
+
+    if (L.tete == NULL) {
+        printf("La liste est vide\n");
+    } else {
+        printf("La liste n'est pas vide\n");
+    }
+    return 0;
+}
