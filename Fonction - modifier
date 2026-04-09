@@ -1,0 +1,63 @@
+Node* modifier(Node* head, int matricule) {
+    Node* etu = rechercher(head, matricule);
+
+    if (etu == NULL) {
+        printf("Etudiant non trouve\n");
+        return head;
+    }
+
+    int choix;
+    do {
+        printf("\n--- Modification Etudiant ---\n");
+        printf("1. Modifier le nom\n");
+        printf("2. Modifier la moyenne\n");
+        printf("3. Modifier tout\n");
+        printf("0. Quitter\n");
+        printf("Choix : ");
+        
+        scanf("%d", &choix);
+
+        switch(choix) {
+            case 1:
+                printf("Nouveau nom : ");
+                scanf("%49s", etu->data.nom);
+                printf("Nom modifie avec succes\n");
+                break;
+
+            case 2:
+                printf("Nouvelle moyenne : ");
+                scanf("%f", &etu->data.moyenne);
+
+                if (etu->data.moyenne < 0  etu->data.moyenne > 20) {
+                    printf("Moyenne invalide !\n");
+                } else {
+                    printf("Moyenne modifiee avec succes\n");
+                }
+                break;
+
+            case 3:
+                printf("Nouveau nom : ");
+                scanf("%49s", etu->data.nom);
+
+                printf("Nouvelle moyenne : ");
+                scanf("%f", &etu->data.moyenne);
+
+                if (etu->data.moyenne < 0  etu->data.moyenne > 20) {
+                    printf("Moyenne invalide !\n");
+                } else {
+                    printf("Modification complete reussie\n");
+                }
+                break;
+
+            case 0:
+                printf("Retour menu\n");
+                break;
+
+            default:
+                printf("Choix invalide\n");
+        }
+
+    } while (choix != 0);
+
+    return head;
+}
